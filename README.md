@@ -42,3 +42,24 @@ This method returns a tuple containing the scRNA-seq data and spatial transcript
 
 The scRNA-seq data is returned as a 1D tensor, and the spatial transcriptomics data is returned as a 2D tensor with an additional dimension for the color channel.
 
+## scRNAseqProcess.py
+
+This Python script is used for processing single-cell RNA sequencing (scRNA-seq) data. It uses the PySpark library to handle large data files.
+
+### SparkSession Initialization
+
+A SparkSession is initialized with the name "Large Text Files Reader". The configuration is set to allow a maximum of 100 retries for the port, and both the driver and executor memory are set to 8 gigabytes.
+
+### Function
+
+`gene_seq(insitu_count_file:str) -> Tuple(dict, dict)`
+
+This function reads a tab-separated file containing in-situ count data and returns two dictionaries mapping genes to indices and indices to genes. It takes one argument:
+
+- `insitu_count_file`: The path to the file containing the in-situ count data.
+
+The function returns a tuple of two dictionaries:
+
+- `gene_to_idx`: A dictionary mapping gene names to their corresponding indices.
+- `idx_to_gene`: A dictionary mapping indices to their corresponding gene names.
+
