@@ -2,7 +2,7 @@
 
 ## dataloader.py
 
-This Python script is used for loading and preprocessing data for a spatial transcriptomics project. 
+This Python script is used for loading and preprocessing for spatial transcriptomics data. 
 
 ### Functions
 
