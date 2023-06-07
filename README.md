@@ -29,7 +29,7 @@ This class represents a dataset for spatial transcriptomics and scRNA-seq data. 
 The initializer for this class takes two arguments:
 
 - `data_dir`: The directory where the data files are located.
-- 'image_size`: The size of the image to be generated from the spatial transcriptomics data.
+- `image_size`: The size of the image to be generated from the spatial transcriptomics data.
 The initializer reads in several data files, scales the spatial transcriptomics data to fit an image-like system, and converts the data into PyTorch tensors.
 
 `__len__(self)`
