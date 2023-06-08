@@ -134,3 +134,46 @@ The script includes several classes for implementing a VQGAN-VAE model:
 
 The VQGanVAE class includes methods for encoding and decoding images, as well as a forward method that calculates the loss for training the model. The class also includes methods for saving and loading the model's state.
 
+## muse_maskgit_STTT.py
+
+This Python script implements the model Muse and low/high resolution MaskGit model, which is a variant of the Transformer model, specifically designed for single-cell RNA sequencing (scRNASeq) data. The model is used for generating spatial transcriptomic data based on the scRNA-seq data.
+
+### Helper Functions
+
+Several helper functions are defined for operations such as checking if a value exists, normalizing tensors, getting a subset of a mask, and others.
+
+### Model Components
+
+Various classes are defined to build the components of the Transformer model. These include LayerNorm, GEGLU, FeedForward, Attention, TransformerBlocks, and Transformer.
+
+### `SelfCritic` Class
+
+This class is a wrapper around the Transformer model and is used to predict the next token.
+
+### `MaskGitTransformer` and `TokenCritic` Classes
+
+These are specialized versions of the Transformer model.
+
+### `MaskGit` Class
+
+This is the main class implementing the MaskGit model. It includes methods for saving and loading the model, as well as a forward method for training and a generate method for generating images.
+
+### `Muse` Class
+
+This class combines the base MaskGit model with a super-resolution MaskGit model to generate high-resolution images.
+
+The script also includes code for handling conditioning on low-resolution images, self-conditioning, and negative prompting, as well as code for sampling and noise schedules.
+
+## trainer.py
+
+This python script defines two classes, `VQGanVAETrainer` and `MaskGitTrainer`, for training two different types of models: a VQGAN-VAE model and a MaskGit model. These models are used for spatial transcriptomic data generation tasks.
+
+### Class `VQGanVAETrainer` 
+
+The `VQGanVAETrainer` class is used to train a VQGAN-VAE model. It includes methods for training steps, saving and loading models, and logging training progress. The class also handles the creation and management of datasets and dataloaders for training and validation, as well as the setup and management of the training environment using the Accelerator class from the accelerate library.
+
+### Class `MaskGitTrainer`
+
+The `MaskGitTrainer` class is used to train a MaskGit model. Similar to the VQGanVAETrainer class, it includes methods for training steps, saving and loading models, and logging training progress. It also handles the creation and management of datasets and dataloaders for training and validation, as well as the setup and management of the training environment using the Accelerator class from the accelerate library.
+
+## main.py
