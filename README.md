@@ -177,3 +177,14 @@ The `VQGanVAETrainer` class is used to train a VQGAN-VAE model. It includes meth
 The `MaskGitTrainer` class is used to train a MaskGit model. Similar to the VQGanVAETrainer class, it includes methods for training steps, saving and loading models, and logging training progress. It also handles the creation and management of datasets and dataloaders for training and validation, as well as the setup and management of the training environment using the Accelerator class from the accelerate library.
 
 ## main.py
+
+The provided Python script is a main execution script for training and using models for spatial transcriptomic data generation tasks. The script is divided into four steps, each of which is commented out except for the last one.
+
+- Step 1 is for training a `VQGAN-VAE` model. It creates an instance of the `VQGanVAE` model and an instance of the `VQGanVAETrainer` class, which is used to train the model.
+
+- Step 2 is for training a `MaskGit` model. It loads a pre-trained `VQGAN-VAE` model, creates an instance of the `MaskGitTransformer` class, and an instance of the `MaskGitTrainer` class, which is used to train the `MaskGit` model.
+
+- Step 3 is for training a `super-resolution MaskGit` model. It loads a pre-trained `VQGAN-VAE` model, creates an instance of the `MaskGitTransformer` class, and an instance of the `MaskGitTrainer` class with the `is_superres` parameter set to `True`, which is used to train the `super-resolution MaskGit` model.
+
+- Step 4 is for using the trained models to generate images. It loads the trained `base MaskGit` model and the trained `super-resolution MaskGit` model, creates an instance of the `Muse` class with the trained models, and uses the Muse instance to generate images from text prompts.
+
