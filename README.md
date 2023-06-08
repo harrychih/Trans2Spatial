@@ -1,5 +1,7 @@
 # Trans2Spatial Project
 
+Code adopted from https://github.com/lucidrains/muse-maskgit-pytorch
+
 ## dataloader.py
 
 This Python script is used for loading and preprocessing for spatial transcriptomics data. 
@@ -103,4 +105,32 @@ The method returns a tensor containing the embedded scRNA-seq data.
 
 This function tests the `scRNASeqEmbedding` class by creating an instance of the class and applying it to a random scRNA-seq data matrix. The shape of the output tensor is printed to the console.
 
+## vqgan_vae.py
+
+This Python script is used for implementing a VQGAN-VAE model. It uses the PyTorch library to create the model and its components.
+
+### Helper Functions
+
+The script includes several helper functions for tasks such as checking if a value exists, defaulting a value if it doesn't exist, and grouping dictionaries by key.
+
+### Tensor Helper Functions
+
+The script also includes several helper functions for working with tensors, such as calculating the gradient penalty, applying a leaky ReLU activation function, and calculating safe division.
+
+### GAN Losses
+
+The script includes functions for calculating the hinge and binary cross-entropy losses for a discriminator and a generator.
+
+### VQGAN-VAE
+
+The script includes several classes for implementing a VQGAN-VAE model:
+
+- `LayerNormChan`: A layer normalization module that normalizes across the channel dimension.
+- `Discriminator`: A discriminator network for the GAN.
+- `ResnetEncDec`: A ResNet-based encoder-decoder network.
+- `GLUResBlock`: A gated linear unit (GLU) ResNet block.
+- `ResBlock`: A standard ResNet block.
+- `VQGanVAE`: The main VQGAN-VAE model, which includes an encoder-decoder network, a vector quantization (VQ) layer, and optionally a discriminator and a VGG network for perceptual loss.
+
+The VQGanVAE class includes methods for encoding and decoding images, as well as a forward method that calculates the loss for training the model. The class also includes methods for saving and loading the model's state.
 
