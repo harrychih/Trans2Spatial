@@ -1,6 +1,6 @@
 # Trans2Spatial Project
 
-Code adopted from https://github.com/lucidrains/muse-maskgit-pytorch
+Code adapted from https://github.com/lucidrains/muse-maskgit-pytorch
 
 ## dataloader.py
 
